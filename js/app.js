@@ -51,7 +51,7 @@ $('#deal').on('click', () => {
 console.log(cardsArray);
         return cardsArray;
       }
-      dealCards(arrayOfCards);
+//      dealCards(arrayOfCards);
 
       player.push(dealCards(arrayOfCards));
       computer.push(dealCards(arrayOfCards));
@@ -72,6 +72,7 @@ console.log(cardsArray);
 giveCards(arrayOfCards);
 
 player.push(giveCards(arrayOfCards));
+//computer.push(giveCards(arrayOfCards));
 }
 );
 // <--------- Game Mechanics --------->
