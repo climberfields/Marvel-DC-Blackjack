@@ -1,0 +1,80 @@
+body {
+/*    background-image: url("https://i.kinja-img.com/gawker-media/image/upload/s--puwaVOGm--/c_scale,f_auto,fl_progressive,q_80,w_800/bn7xrbxoxejjixvdbtfs.jpg");*/
+    background-repeat: no-repeat;
+    background-size: auto;
+}
+
+
+aside {
+    position: relative;
+    float: left;
+    display: flex;
+    align-self: flex-end;
+    padding: 5px 5px 5px 5px;
+    color: azure;
+}
+
+.sidebar {
+    color: ;
+    position: relative;
+    float: right;
+    width: 200px;
+    font-size: 17px;
+    padding: 10px;
+    margin: 10px;
+}
+
+#dealerCards {
+    justify-content: center;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    align-content: flex-end;
+    padding: 10px;
+    margin: 10px;
+}
+
+#playerCards {
+    justify-content: center;
+    flex-wrap: wrap;
+    align-content: flex-end;
+    padding: 10px;
+    margin: 10px;
+}
+
+img {
+    height: auto;
+    width: auto;
+    max-width: 100px;
+    max-height: 100px;
+
+}
+
+p {
+    font-family: cursive;
+    font-weight: bold;
+    flex-direction: column;
+}
+
+h1 {
+    font-family: fantasy;
+    font-weight: 400;
+    align-items: flex-start;
+    padding-bottom: 20px;
+    color: goldenrod;
+}
+
+footer {
+    content: inherit;
+    font-family: fantasy;
+    display: block;
+    align-content: flex-end;
+    color: brown;
+    padding: 20px 20px 20px 20px;
+    border: 20px 20px 20px 20px;
+    background-color: black;
+}
+
+
+hr {
+    border: 5px solid #000;
+}
