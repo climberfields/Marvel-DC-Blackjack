@@ -36,58 +36,71 @@ const arrayOfCards = [
 //   'DCAS', 'DCAH', 'DCAC', 'DCAD'
 // ]
 
+const getRandomCard = () => arrayOfCards[Math.floor(Math.random() * arrayOfCards.length)];
 
+const dealCards = (array) => {
+    let counter = 2
+    let cardsArray = []
+    while (counter !== 0 ) { 
+        let randomCard = getRandomCard()
+        cardsArray.push(randomCard)
+        array.splice(array.indexOf(randomCard), 1)
+        counter-- 
+    }
+    console.log(array)
+    console.log(cardsArray)
+    return cardsArray;
+}
+const giveCards = (array) => {
+         let counter = 1
+    let cardsArray = []
+    while (counter !== 0 ) { 
+        let randomCard = getRandomCard()
+        cardsArray.push(randomCard)
+        array.splice(array.indexOf(randomCard), 1)
+        counter-=1 
+    }
+    console.log(array)
+    console.log(cardsArray)
+    return cardsArray;
+    }
 // <----- Dealer Function ----->
 $('#deal').on('click', () => {
-      console.log('clicked deal button')
-      const dealCards = (arrayOfCards) => {
-
-
-
-        let randomCard = arrayOfCards[Math.ceil(Math.random() * arrayOfCards.length)];
-        let cardsArray = [];
-          let card = arrayOfCards.splice(randomCard, 2);
-          cardsArray = cardsArray.concat(card);
-console.log(cardsArray);
-        return cardsArray;
-      }
-//      dealCards(arrayOfCards);
-
-      player.push(dealCards(arrayOfCards));
-      computer.push(dealCards(arrayOfCards));
-      });
+    console.log('clicked deal button')
+    player.concat(dealCards(arrayOfCards));
+    console.log(player)
+    computer.concat(dealCards(arrayOfCards));
+    console.log(computer)
+});
 
 // <------- Hit Button -------->
 
 $('#hit').on('click', () => {
-  console.log("hit button works")
-  const giveCards = (arrayOfCards) => {
-  let randomCard = arrayOfCards[Math.ceil(Math.random() * arrayOfCards.length)];
-  let cardsArray = [];
-    let card = arrayOfCards.splice(randomCard, 1);
-    cardsArray = cardsArray.concat(card);
-console.log(cardsArray);
-  return cardsArray;
-}
-giveCards(arrayOfCards);
+    console.log("hit button works")
+   player.concat(giveCards(arrayOfCards));
+    computer.concat(giveCards(arrayOfCards));
+});
+// <--------- Display Cards --------->
 
-player.push(giveCards(arrayOfCards));
-//computer.push(giveCards(arrayOfCards));
-}
-);
-// <--------- Game Mechanics --------->
-    const BlackJack = (player, computer) => { 
-    }
 
-      // }
-      // BlackJack();
-      // // pass in two arrays. 1 for players , other for pc
-      // for ( let i = 0; i < 3; i++ ) {
-      //    if ( PlayerNumber > ) {
-      //    playerScore += 1;
-      // }  else if (playersCardDamage < pcCardDamage) {pcScore += 1; }
-      //  } else if ( playerNumber === 21 ) {console.log("You win") } else if (pcCardNumber === 21 && playerNumber !== 21) {console.log("You lose")}
-      //  else {
-      //  playerScore =+1;
-      // pcScore += 1;
-      // }
+
+
+
+
+
+
+
+//  <----------- Getting Cards to Be pulled -------------->
+
+// }
+// BlackJack();
+// // pass in two arrays. 1 for players , other for pc
+// for ( let i = 0; i < 3; i++ ) {
+//    if ( PlayerNumber > ) {
+//    playerScore += 1;
+// }  else if (playersCardDamage < pcCardDamage) {pcScore += 1; }
+//  } else if ( playerNumber === 21 ) {console.log("You win") } else if (pcCardNumber === 21 && playerNumber !== 21) {console.log("You lose")}
+//  else {
+//  playerScore =+1;
+// pcScore += 1;
+// }
