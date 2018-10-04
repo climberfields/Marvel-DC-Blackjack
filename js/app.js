@@ -1,8 +1,11 @@
 (console.log('get after it'))
 
 let computer = [];
-let player = []; 
-
+let player = [];
+let S = "&#9824;";
+let H = "&#9829;";
+let C = "&#9827";
+let D = "&#9830;";
 
 
 // Card Arrays
@@ -37,15 +40,50 @@ const arrayOfCards = [
 //   'DCAS', 'DCAH', 'DCAC', 'DCAD'
 // ]
 
-//<--- Create an Image--->
+///<-------- Card NumValues -------> 
+const numValues = (arrayOfCards) => {
+    for (let i = 0; i < arrayOfCards.length; i++) {
+        let digit = arrayOfCards[i].split(" ");
+        digit.splice(digit.length - 1);
+        digit.join("");
+        console.log('this is numValues')
+    }
+}
+// <--------- Card Values --------->
 
-//HTMLImageElement() {
-//    for (let i = 0; i < arrayOfCards.length; i++) {
-//        let image = document.createElement('img')
-//        img.src = arrayOfCards[].fileName;
-//        image.style.height = '120px'
-//        image.style.width = '100px'
-//        $(.player).append(image);
+const cardValue = (numValues) => {
+    if (numValues == 'J' || numValues == 'Q' || numValues == 'K') {
+        return 10
+    } else if (value == 'A') {
+        return 11
+    } else {
+        return value;
+    }
+}
+
+//<-------- Card Letters --------->
+
+const letterValues = (arrayOfCards) => {
+    for (let i = 0; i < arrayOfCards.length; i++) {
+        let letter = arrayOfCards[i].split("");
+        letter.reverse("")
+        letter.splice(letter.length - 2);
+        letter = letter.join('');
+        console.log(letter)
+    }
+
+}
+//<--- Create the Card --->
+
+const HTMLImageElement = () => {
+    for (let i = 0; i < arrayOfCards.length; i++) {
+        let image = document.createElement('img')
+        image.src = numValues().concat(letterValues(arrayOfCards))
+        image.style.height = '120px'
+        image.style.width = '100px'
+        
+     $('#player').append(image);
+    $('#computer').append(image);
 
     }
 }
@@ -61,11 +99,14 @@ const dealCards = (array) => {
         cardsArray.push(randomCard)
         array.splice(array.indexOf(randomCard), 1)
         counter--
+        HTMLImageElement();
     }
     console.log(array)
     console.log(cardsArray)
     return cardsArray;
 }
+
+//<------ give Random Card for Hit function ------>
 const giveCards = (array) => {
     let counter = 1
     let cardsArray = []
@@ -74,6 +115,7 @@ const giveCards = (array) => {
         cardsArray.push(randomCard)
         array.splice(array.indexOf(randomCard), 1)
         counter -= 1
+        HTMLImageElement();
     }
     console.log(array)
     console.log(cardsArray)
@@ -82,13 +124,12 @@ const giveCards = (array) => {
 // <----- Dealer Function ----->
 $('#deal').on('click', () => {
     console.log('clicked deal button')
-    HTMLImageElement();
     player.concat(dealCards(arrayOfCards));
     console.log(player)
     computer.concat(dealCards(arrayOfCards));
     console.log(computer)
-    this.sumCards(player)
-    this.sumCards(computer)
+    //    this.sumCards(player)
+    //    this.sumCards(computer)
 });
 
 // <------- Hit Button -------->
@@ -99,31 +140,25 @@ $('#hit').on('click', () => {
     computer.concat(giveCards(arrayOfCards));
 });
 
-//<-------- Card NumValues -------> 
+////<-------- Card NumValues -------> 
+//
+//numValues(arrayOfCards) {
+//    for (let i = 0; i < arrayOfCards.length; i++) {
+//    let digit = arrayOfCards[i].split(" ");
+//        digit.splice(digit.length-1);
+//        digit.join("");
+//       
+//    }
+//}
 
-numValues(arrayOfCards) {
-    for (i = 0; i < arrayOfCards.length; i++) { arrayOfCards.split(" ") 
-                                              console.log(arrayOfCards([i]))}
-} 
 
 
 
 
-// <--------- Card Values --------->
-
-cardValue(value) {
-    if (value == 'J') || value == 'Q' || value 'K' {
-        return 10
-    } else if (value == 'A') {
-        return 11
-    } else {
-        parseInt(value)
-    }
-}
 
 //<-------- Totals -------->
 
-sumCards() {
+sumCards = (hand) => {
     let sum = 0;
     let aces = 0;
     for (let card of player) {
@@ -135,12 +170,12 @@ sumCards() {
             sum += value
         }
     }
-}
 while (aces > 0 && sum > 21) {
     aces -= 1
     sum -= 10
 }
-player.score = sum
+}
+
 
 //<------ Win Lose or Draw --------> 
 
@@ -148,26 +183,31 @@ if (sumCards(player) > 22) {
     alert('You bust. Game Over')
 } else if (sumCards(computer) > 22) {
     alert('Dealer Bust. You win!')
-} else if {
-    sumCards(player) === 21 && sumCards(computer) !== 21 {
-        alert('You Win')
-    } else if sumCards(player) === 21 && sumCards(computer) === 21 {
-        alert('draw')
-    } 
+} else if
+(sumCards(player) === 21 && sumCards(computer) !== 21) {
+    alert('You Win')
+}
+else if
+(sumCards(player) === 21 && sumCards(computer) === 21) {
+    alert('draw')
+} else {
+    alert('game on')
+}
 
 
 
-    //  <----------- Getting Cards to Be pulled -------------->
 
-    // }
-    // BlackJack();
-    // // pass in two arrays. 1 for players , other for pc
-    // for ( let i = 0; i < 3; i++ ) {
-    //    if ( PlayerNumber > ) {
-    //    playerScore += 1;
-    // }  else if (playersCardDamage < pcCardDamage) {pcScore += 1; }
-    //  } else if ( playerNumber === 21 ) {console.log("You win") } else if (pcCardNumber === 21 && playerNumber !== 21) {console.log("You lose")}
-    //  else {
-    //  playerScore =+1;
-    // pcScore += 1;
-    // }
+//  <----------- Getting Cards to Be pulled -------------->
+
+// }
+// BlackJack();
+// // pass in two arrays. 1 for players , other for pc
+// for ( let i = 0; i < 3; i++ ) {
+//    if ( PlayerNumber > ) {
+//    playerScore += 1;
+// }  else if (playersCardDamage < pcCardDamage) {pcScore += 1; }
+//  } else if ( playerNumber === 21 ) {console.log("You win") } else if (pcCardNumber === 21 && playerNumber !== 21) {console.log("You lose")}
+//  else {
+//  playerScore =+1;
+// pcScore += 1;
+// }
