@@ -1,7 +1,20 @@
 (console.log('get after it'))
 
 let computer = [];
-let player = [];
+let player = []; <
+//<--- Create an Image--->
+
+HTMLImageElement() {
+    for (let i = 0; i < arrayOfCards.length; i++) {
+        let image = document.createElement('img')
+        img.src = arrayOfCards[].fileName;
+        image.style.height = '120px'
+        image.style.width = '100px'
+        $(.player).append(image);
+
+    }
+}
+
 
 
 // Card Arrays
@@ -41,29 +54,29 @@ const getRandomCard = () => arrayOfCards[Math.floor(Math.random() * arrayOfCards
 const dealCards = (array) => {
     let counter = 2
     let cardsArray = []
-    while (counter !== 0 ) { 
+    while (counter !== 0) {
         let randomCard = getRandomCard()
         cardsArray.push(randomCard)
         array.splice(array.indexOf(randomCard), 1)
-        counter-- 
+        counter--
     }
     console.log(array)
     console.log(cardsArray)
     return cardsArray;
 }
 const giveCards = (array) => {
-         let counter = 1
+    let counter = 1
     let cardsArray = []
-    while (counter !== 0 ) { 
+    while (counter !== 0) {
         let randomCard = getRandomCard()
         cardsArray.push(randomCard)
         array.splice(array.indexOf(randomCard), 1)
-        counter-=1 
+        counter -= 1
     }
     console.log(array)
     console.log(cardsArray)
     return cardsArray;
-    }
+}
 // <----- Dealer Function ----->
 $('#deal').on('click', () => {
     console.log('clicked deal button')
@@ -77,7 +90,7 @@ $('#deal').on('click', () => {
 
 $('#hit').on('click', () => {
     console.log("hit button works")
-   player.concat(giveCards(arrayOfCards));
+    player.concat(giveCards(arrayOfCards));
     computer.concat(giveCards(arrayOfCards));
 });
 // <--------- Display Cards --------->
