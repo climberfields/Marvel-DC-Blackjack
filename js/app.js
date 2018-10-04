@@ -2,18 +2,6 @@
 
 let computer = [];
 let player = []; <
-//<--- Create an Image--->
-
-HTMLImageElement() {
-    for (let i = 0; i < arrayOfCards.length; i++) {
-        let image = document.createElement('img')
-        img.src = arrayOfCards[].fileName;
-        image.style.height = '120px'
-        image.style.width = '100px'
-        $(.player).append(image);
-
-    }
-}
 
 
 
@@ -48,6 +36,20 @@ const arrayOfCards = [
 //   'DCKS', 'DCKH', 'DCKC', 'DCKD',
 //   'DCAS', 'DCAH', 'DCAC', 'DCAD'
 // ]
+
+//<--- Create an Image--->
+
+HTMLImageElement() {
+    for (let i = 0; i < arrayOfCards.length; i++) {
+        let image = document.createElement('img')
+        img.src = arrayOfCards[].fileName;
+        image.style.height = '120px'
+        image.style.width = '100px'
+        $(.player).append(image);
+
+    }
+}
+//<--- Get Random Card ---->
 
 const getRandomCard = () => arrayOfCards[Math.floor(Math.random() * arrayOfCards.length)];
 
@@ -84,6 +86,8 @@ $('#deal').on('click', () => {
     console.log(player)
     computer.concat(dealCards(arrayOfCards));
     console.log(computer)
+    this.sumCards(player)
+    this.sumCards(computer)
 });
 
 // <------- Hit Button -------->
@@ -93,13 +97,45 @@ $('#hit').on('click', () => {
     player.concat(giveCards(arrayOfCards));
     computer.concat(giveCards(arrayOfCards));
 });
-// <--------- Display Cards --------->
+// <--------- Card Values --------->
 
+cardValue(value) {
+    if (value == 'J') || value == 'Q' || value 'K' {
+        return 10
+    } else if (value == 'A') {
+        return 11
+    } else {
+        parseInt(value)
+    }
+}
 
+//<-------- Totals -------->
 
+sumCards() {
+    let sum = 0;
+    let aces = 0; 
+    for (let card of player) {
+        let value =this.cardValue();
+        if (value === 11) {
+            aces += 1
+            sum += value
+        } else {
+            sum += value
+        }
+        }
+    }
+while (aces > 0 && sum > 21) {
+    aces -= 1
+    sum -= 10
+}
+player.score = sum
 
+<------ Win Lose or Draw --------> 
 
-
+if (sumCards(player) > 22) {alert('You bust. Game Over')} 
+else if (sumCards(computer) > 22 ) {alert('Dealer Bust. You win!')} else if {
+    sumCards(player) === 21 && sumCards(computer) !== 21 {alert('You Win')} else if 
+}
 
 
 
