@@ -1,7 +1,7 @@
 (console.log('get after it'))
 
 let computer = [];
-let player = []; <
+let player = []; 
 
 
 
@@ -39,13 +39,13 @@ const arrayOfCards = [
 
 //<--- Create an Image--->
 
-HTMLImageElement() {
-    for (let i = 0; i < arrayOfCards.length; i++) {
-        let image = document.createElement('img')
-        img.src = arrayOfCards[].fileName;
-        image.style.height = '120px'
-        image.style.width = '100px'
-        $(.player).append(image);
+//HTMLImageElement() {
+//    for (let i = 0; i < arrayOfCards.length; i++) {
+//        let image = document.createElement('img')
+//        img.src = arrayOfCards[].fileName;
+//        image.style.height = '120px'
+//        image.style.width = '100px'
+//        $(.player).append(image);
 
     }
 }
@@ -82,6 +82,7 @@ const giveCards = (array) => {
 // <----- Dealer Function ----->
 $('#deal').on('click', () => {
     console.log('clicked deal button')
+    HTMLImageElement();
     player.concat(dealCards(arrayOfCards));
     console.log(player)
     computer.concat(dealCards(arrayOfCards));
@@ -97,6 +98,17 @@ $('#hit').on('click', () => {
     player.concat(giveCards(arrayOfCards));
     computer.concat(giveCards(arrayOfCards));
 });
+
+//<-------- Card NumValues -------> 
+
+numValues(arrayOfCards) {
+    for (i = 0; i < arrayOfCards.length; i++) { arrayOfCards.split(" ") 
+                                              console.log(arrayOfCards([i]))}
+} 
+
+
+
+
 // <--------- Card Values --------->
 
 cardValue(value) {
@@ -113,43 +125,49 @@ cardValue(value) {
 
 sumCards() {
     let sum = 0;
-    let aces = 0; 
+    let aces = 0;
     for (let card of player) {
-        let value =this.cardValue();
+        let value = this.cardValue();
         if (value === 11) {
             aces += 1
             sum += value
         } else {
             sum += value
         }
-        }
     }
+}
 while (aces > 0 && sum > 21) {
     aces -= 1
     sum -= 10
 }
 player.score = sum
 
-<------ Win Lose or Draw --------> 
+//<------ Win Lose or Draw --------> 
 
-if (sumCards(player) > 22) {alert('You bust. Game Over')} 
-else if (sumCards(computer) > 22 ) {alert('Dealer Bust. You win!')} else if {
-    sumCards(player) === 21 && sumCards(computer) !== 21 {alert('You Win')} else if 
-}
+if (sumCards(player) > 22) {
+    alert('You bust. Game Over')
+} else if (sumCards(computer) > 22) {
+    alert('Dealer Bust. You win!')
+} else if {
+    sumCards(player) === 21 && sumCards(computer) !== 21 {
+        alert('You Win')
+    } else if sumCards(player) === 21 && sumCards(computer) === 21 {
+        alert('draw')
+    } 
 
 
 
-//  <----------- Getting Cards to Be pulled -------------->
+    //  <----------- Getting Cards to Be pulled -------------->
 
-// }
-// BlackJack();
-// // pass in two arrays. 1 for players , other for pc
-// for ( let i = 0; i < 3; i++ ) {
-//    if ( PlayerNumber > ) {
-//    playerScore += 1;
-// }  else if (playersCardDamage < pcCardDamage) {pcScore += 1; }
-//  } else if ( playerNumber === 21 ) {console.log("You win") } else if (pcCardNumber === 21 && playerNumber !== 21) {console.log("You lose")}
-//  else {
-//  playerScore =+1;
-// pcScore += 1;
-// }
+    // }
+    // BlackJack();
+    // // pass in two arrays. 1 for players , other for pc
+    // for ( let i = 0; i < 3; i++ ) {
+    //    if ( PlayerNumber > ) {
+    //    playerScore += 1;
+    // }  else if (playersCardDamage < pcCardDamage) {pcScore += 1; }
+    //  } else if ( playerNumber === 21 ) {console.log("You win") } else if (pcCardNumber === 21 && playerNumber !== 21) {console.log("You lose")}
+    //  else {
+    //  playerScore =+1;
+    // pcScore += 1;
+    // }
