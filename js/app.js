@@ -147,19 +147,22 @@ $('#deal').on('click', () => {
    $('#player').append(dealCards(arrayOfCards));
 
     let card1 =  $('#computer').append(dealCards(arrayOfCards));
-    let card2 =  $('#player').append(dealCards(arrayOfCards))
+    let card2 =  $('#player').append(dealCards(arrayOfCards));
     const compareCards = () => {
-  card = card.split('');
-  card.splice(card.length -1);
-  card = card.join('') >  card2 = card2.split('');
+  card1 = card1.split('');
+  card1.splice(card1.length -1);
+  card1 = card1.join(''); 
+        card2 = card2.split('');
   card2.splice(card2.length -1);
-  card2 = card2.join('')
-return card;
+  card2 = card2.join('');
+        
+        if (card1 > card2) { alert("you lose")} else if  (card1 < card2) {alert("you win")} else {alert("draw")} 
+
 }
-compareCards(burger)
-//    $('#player').append(dealCards(arrayOfCards));
-//    $('#computer').append(dealCards(arrayOfCards));
-//    
+compareCards()
+    $('#player').append(dealCards(arrayOfCards));
+    $('#computer').append(dealCards(arrayOfCards));
+    
     //    this.sumCards(player)
     //    this.sumCards(computer)
 });
@@ -172,6 +175,19 @@ $('#hit').on('click', () => {
     computer.concat(giveCards(arrayOfCards));
       $('#player').append(giveCards(arrayOfCards));
     $('#computer').append(giveCards(arrayOfCards));
+    
+//    let card1 =  $('#computer').append(dealCards(arrayOfCards));
+//    let card2 =  $('#player').append(dealCards(arrayOfCards));
+//     const compareCards = () => {
+////  card = card.split('');
+////  card.splice(card.length -1);
+////  card = card.join('') card2 = card2.split('');
+////  card2.splice(card2.length -1);
+////  card2 = card2.join('')
+//        
+//        if (card1 > card2) { alert("you lose")} else if  (card1 < card2) {alert("you win")} else {alert("draw")} 
+//
+//};
 });
 
 ////<-------- Card NumValues -------> 

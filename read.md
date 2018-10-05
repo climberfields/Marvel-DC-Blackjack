@@ -4,6 +4,9 @@
 
 ### If you're not familiar with the game of War, this is how it works. You and the computer are both dealt one card. Whoever has the higher card wins. If your cards are even in the beginning, then you press HIT to recieve another card.
 
+### Who should play it 
+This game is perfect for anyone who is looking to calmly pass the time. It is intended for usage for anyone ages 10+
+
 ## The Rules
 
 Press Deal to begin the game. 
