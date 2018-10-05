@@ -87,30 +87,17 @@ const arrayOfCards = [
 //
 //    }
 //}
-
-  playerImgElement() {
-    for (let i = 0; i < this.player.hand.cards.length; i++) {
-      const image = document.createElement('img')
-      image.src = this.player.hand.cards[i].fileName
-      image.style.height = '180px'
-      image.style.width = '160px'
-      image.style.padding = '10px'
+imgElement = () => {
+    for (let i = 0; i < arrayOfCards.length; i++) {
+      let image = document.createElement('img')
+      image.src = arrayOfCards[i].fileName;
+      image.style.height = '120px'
+      image.style.width = '100px'
       $('#player').append(image);
-    }
-  }
 
-  dealerImgElement() {
-    for (let i = 0; i < this.dealer.hand.cards.length; i++) {
-      let image2 = document.createElement('img');
-      image2.src = this.dealer.hand.cards[i].fileName
-      image2.style.height = '180px'
-      image2.style.width = '160px'
-      image2.style.padding = '10px'
-      $('#dealer').append(image2);
     }
-  }
+  
 }
-
 
 
 
@@ -156,7 +143,7 @@ $('#deal').on('click', () => {
     console.log(player)
     computer.concat(dealCards(arrayOfCards));
     console.log(computer)
-    
+    $('#computer').append(dealCards(arrayOfCards));
    $('#player').append(dealCards(arrayOfCards));
 
 //    $('#player').append(dealCards(arrayOfCards));
@@ -172,6 +159,8 @@ $('#hit').on('click', () => {
     console.log("hit button works")
     player.concat(giveCards(arrayOfCards));
     computer.concat(giveCards(arrayOfCards));
+      $('#player').append(giveCards(arrayOfCards));
+    $('#computer').append(giveCards(arrayOfCards));
 });
 
 ////<-------- Card NumValues -------> 
@@ -184,11 +173,35 @@ $('#hit').on('click', () => {
 //       
 //    }
 //}
+//<--------- Generate Card ---------->
 
+  playerImgElement = () => {
+    for (let i = 0; i < player.dealCards.arrayOfCards.length; i++) {
+      const image = document.createElement('img')
+      image.src = player.dealCards.arrayOfCards[i].fileName
+      image.style.height = '180px'
+      image.style.width = '160px'
+      image.style.padding = '10px'
+      $('#player').append(image);
+    }
+  }
+
+  dealerImgElement = () => {
+    for (let i = 0; i < computer.dealCards.arrayOfCards.length; i++) {
+      const image2 = document.createElement('img');
+      image2.src = computer.dealCards.arrayOfCards[i].fileName
+      image2.style.height = '180px'
+      image2.style.width = '160px'
+      image2.style.padding = '10px'
+      $('#computer').append(image2);
+    }
+  }
+
+//
 //<-------- Reset Button ------->
-
-               console.log('clear button works')
- document.getElementById("#clear").reset("");
+//
+//               console.log('clear button works')
+// document.getElementById("#clear").reset("");
 
 
 

@@ -1,17 +1,16 @@
 body {
-/*    background-image: url("https://i.kinja-img.com/gawker-media/image/upload/s--puwaVOGm--/c_scale,f_auto,fl_progressive,q_80,w_800/bn7xrbxoxejjixvdbtfs.jpg");*/
+    background-image: url(https://i.ytimg.com/vi/kRSbEIr4rUQ/maxresdefault.jpg);
     background-repeat: no-repeat;
-    background-size: auto;
+    
 }
 
 
-aside {
+.aside {
     position: relative;
     float: left;
-    display: flex;
-    align-self: flex-end;
     padding: 5px 5px 5px 5px;
-    color: azure;
+    flex-direction: column;
+    color: black;
 }
 
 .sidebar {
@@ -60,18 +59,22 @@ h1 {
     font-weight: 400;
     align-items: flex-start;
     padding-bottom: 20px;
-    color: goldenrod;
+    color: black;
 }
 
 footer {
-    content: inherit;
+/*    position: absolute;*/
+    margin-top: 200px;
     font-family: fantasy;
-    display: block;
-    align-content: flex-end;
-    color: brown;
+/*    align-content: flex-end;*/
+    color: black;
+    width: 200px;
+/*
     padding: 20px 20px 20px 20px;
     border: 20px 20px 20px 20px;
-    background-color: black;
+*/
+    margin-left: 1250px;
+    background-color: 
 }
 
 
@@ -79,9 +82,13 @@ hr {
     border: 5px solid #000;
 }
 
-#battleground{
-/*
-    background: url(https://image.shutterstock.com/image-photo/ronda-spain-november-5-bullring-450w-186922631.jpg);
-        
-*/
+#container {
+   height:100%;
+}
+
+.images {
+  background-color: ;
+  padding: 1%;
+    width: 200px; 
+    margin-left: 20px;
 }
