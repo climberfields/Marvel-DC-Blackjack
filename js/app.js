@@ -107,7 +107,7 @@ imgElement = () => {
 const getRandomCard = () => arrayOfCards[Math.floor(Math.random() * arrayOfCards.length)];
 
 const dealCards = (array) => {
-    let counter = 2
+    let counter = 1
     let cardsArray = []
     while (counter !== 0) {
         let randomCard = getRandomCard()
@@ -146,6 +146,17 @@ $('#deal').on('click', () => {
     $('#computer').append(dealCards(arrayOfCards));
    $('#player').append(dealCards(arrayOfCards));
 
+    let card1 =  $('#computer').append(dealCards(arrayOfCards));
+    let card2 =  $('#player').append(dealCards(arrayOfCards))
+    const compareCards = () => {
+  card = card.split('');
+  card.splice(card.length -1);
+  card = card.join('') >  card2 = card2.split('');
+  card2.splice(card2.length -1);
+  card2 = card2.join('')
+return card;
+}
+compareCards(burger)
 //    $('#player').append(dealCards(arrayOfCards));
 //    $('#computer').append(dealCards(arrayOfCards));
 //    
@@ -245,6 +256,8 @@ $('#hit').on('click', () => {
 //    alert('game on')
 //}
 
+  
+  
 
 //  <----------- Getting Cards to Be pulled -------------->
 
