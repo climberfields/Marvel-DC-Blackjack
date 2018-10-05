@@ -40,54 +40,82 @@ const arrayOfCards = [
 //   'DCAS', 'DCAH', 'DCAC', 'DCAD'
 // ]
 
-///<-------- Card NumValues -------> 
-const numValues = (arrayOfCards) => {
-    for (let i = 0; i < arrayOfCards.length; i++) {
-        let digit = arrayOfCards[i].split(" ");
-        digit.splice(digit.length - 1);
-        digit.join("");
-        console.log('this is numValues')
+/////<-------- Card NumValues -------> 
+//const numValues = (arrayOfCards) => {
+//    for (let i = 0; i < arrayOfCards.length; i++) {
+//        let digit = arrayOfCards[i].split(" ");
+//        digit.splice(digit.length - 1);
+//        digit.join("");
+//        console.log('this is numValues')
+//    }
+//}
+//// <--------- Card Values --------->
+//
+//const cardValue = (numValues) => {
+//    if (numValues == 'J' || numValues == 'Q' || numValues == 'K') {
+//        return 10
+//    } else if (value == 'A') {
+//        return 11
+//    } else {
+//        return value;
+//    }
+//}
+//
+////<-------- Card Letters --------->
+//
+//const letterValues = (arrayOfCards) => {
+//    for (let i = 0; i < arrayOfCards.length; i++) {
+//        let letter = arrayOfCards[i].split("");
+//        letter.reverse("")
+//        letter.splice(letter.length - 2);
+//        letter = letter.join('');
+//        console.log(letter)
+//    }
+//
+//}
+////<--- Create the Card --->
+//
+//const HTMLImageElement = () => {
+//    for (let i = 0; i < arrayOfCards.length; i++) {
+//        let image = document.createElement('img')
+//        image.src = numValues().concat(letterValues(arrayOfCards))
+//        image.style.height = '120px'
+//        image.style.width = '100px'
+//        
+//     $('#player').append(image);
+//    $('#computer').append(image);
+//
+//    }
+//}
+
+  playerImgElement() {
+    for (let i = 0; i < this.player.hand.cards.length; i++) {
+      const image = document.createElement('img')
+      image.src = this.player.hand.cards[i].fileName
+      image.style.height = '180px'
+      image.style.width = '160px'
+      image.style.padding = '10px'
+      $('#player').append(image);
     }
-}
-// <--------- Card Values --------->
+  }
 
-const cardValue = (numValues) => {
-    if (numValues == 'J' || numValues == 'Q' || numValues == 'K') {
-        return 10
-    } else if (value == 'A') {
-        return 11
-    } else {
-        return value;
+  dealerImgElement() {
+    for (let i = 0; i < this.dealer.hand.cards.length; i++) {
+      let image2 = document.createElement('img');
+      image2.src = this.dealer.hand.cards[i].fileName
+      image2.style.height = '180px'
+      image2.style.width = '160px'
+      image2.style.padding = '10px'
+      $('#dealer').append(image2);
     }
+  }
 }
 
-//<-------- Card Letters --------->
 
-const letterValues = (arrayOfCards) => {
-    for (let i = 0; i < arrayOfCards.length; i++) {
-        let letter = arrayOfCards[i].split("");
-        letter.reverse("")
-        letter.splice(letter.length - 2);
-        letter = letter.join('');
-        console.log(letter)
-    }
 
-}
-//<--- Create the Card --->
 
-const HTMLImageElement = () => {
-    for (let i = 0; i < arrayOfCards.length; i++) {
-        let image = document.createElement('img')
-        image.src = numValues().concat(letterValues(arrayOfCards))
-        image.style.height = '120px'
-        image.style.width = '100px'
-        
-     $('#player').append(image);
-    $('#computer').append(image);
 
-    }
-}
-//<--- Get Random Card ---->
+////<--- Get Random Card ---->
 
 const getRandomCard = () => arrayOfCards[Math.floor(Math.random() * arrayOfCards.length)];
 
@@ -99,7 +127,7 @@ const dealCards = (array) => {
         cardsArray.push(randomCard)
         array.splice(array.indexOf(randomCard), 1)
         counter--
-        HTMLImageElement();
+//        HTMLImageElement();
     }
     console.log(array)
     console.log(cardsArray)
@@ -115,7 +143,7 @@ const giveCards = (array) => {
         cardsArray.push(randomCard)
         array.splice(array.indexOf(randomCard), 1)
         counter -= 1
-        HTMLImageElement();
+//        HTMLImageElement();
     }
     console.log(array)
     console.log(cardsArray)
@@ -128,6 +156,12 @@ $('#deal').on('click', () => {
     console.log(player)
     computer.concat(dealCards(arrayOfCards));
     console.log(computer)
+    
+   $('#player').append(dealCards(arrayOfCards));
+
+//    $('#player').append(dealCards(arrayOfCards));
+//    $('#computer').append(dealCards(arrayOfCards));
+//    
     //    this.sumCards(player)
     //    this.sumCards(computer)
 });
@@ -151,6 +185,10 @@ $('#hit').on('click', () => {
 //    }
 //}
 
+//<-------- Reset Button ------->
+
+               console.log('clear button works')
+ document.getElementById("#clear").reset("");
 
 
 
@@ -158,43 +196,41 @@ $('#hit').on('click', () => {
 
 //<-------- Totals -------->
 
-sumCards = (hand) => {
-    let sum = 0;
-    let aces = 0;
-    for (let card of player) {
-        let value = this.cardValue();
-        if (value === 11) {
-            aces += 1
-            sum += value
-        } else {
-            sum += value
-        }
-    }
-while (aces > 0 && sum > 21) {
-    aces -= 1
-    sum -= 10
-}
-}
+//sumCards = (hand) => {
+//    let sum = 0;
+//    let aces = 0;
+//    for (let card of player) {
+//        let value = this.cardValue();
+//        if (value === 11) {
+//            aces += 1
+//            sum += value
+//        } else {
+//            sum += value
+//        }
+//    }
+//while (aces > 0 && sum > 21) {
+//    aces -= 1
+//    sum -= 10
+//}
+//}
 
 
 //<------ Win Lose or Draw --------> 
 
-if (sumCards(player) > 22) {
-    alert('You bust. Game Over')
-} else if (sumCards(computer) > 22) {
-    alert('Dealer Bust. You win!')
-} else if
-(sumCards(player) === 21 && sumCards(computer) !== 21) {
-    alert('You Win')
-}
-else if
-(sumCards(player) === 21 && sumCards(computer) === 21) {
-    alert('draw')
-} else {
-    alert('game on')
-}
-
-
+//if (sumCards(player) > 22) {
+//    alert('You bust. Game Over')
+//} else if (sumCards(computer) > 22) {
+//    alert('Dealer Bust. You win!')
+//} else if
+//(sumCards(player) === 21 && sumCards(computer) !== 21) {
+//    alert('You Win')
+//}
+//else if
+//(sumCards(player) === 21 && sumCards(computer) === 21) {
+//    alert('draw')
+//} else {
+//    alert('game on')
+//}
 
 
 //  <----------- Getting Cards to Be pulled -------------->
